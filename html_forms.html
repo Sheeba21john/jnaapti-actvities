@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>
+      Alumni Form
+    </title>
+  </head>  
+  <body>
+    <div>
+      <form>
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" />
+        </div>
+        <div>
+          <label>E-mail</label>
+          <input type="email" id="email" placeholder="enter your email" />
+        </div>
+        <div id="print"></div>
+        <div>
+          <label>Gender: </label>
+          <input type="radio" name="gender" value="male"/><span>Male</span>
+          <input type="radio" name="gender" value="female" /><span>Female</span>
+        </div>
+        <div>
+          <label>City</label>
+          <select>
+            <option value="delhi">Delhi</option>
+            <option value="bengaluru">Bengaluru</option>
+            <option value="chennai">Chennai</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="coimbatore">Coimbatore</option>
+            <option value="kolkata">Kolkata</option>
+          </select>
+        </div>
+        <div>
+          <span>Company</span>
+          <input type="text" name="company" />
+        </div>
+        <div>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <script>
+      document.getElementById("email").addEventListener("blur", function invalidEmail() {
+        var e_mail = document.getElementById("email").value;
+        var regex = /^[a-zA-Z0-9.]+@(\w+)\.[0-9a-zA-Z]{2,4}$/;
+        if (!e_mail.match(regex)){
+          document.getElementById("print").innerHTML = "Invalid e-mail, eg: abc@xyz.com";
+        }
+        else
+          document.getElementById("print").innerHTML = "";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      You Got Mail!
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      #envelope {
+        height: 312px;
+        width: 354px;
+        position: absolute;
+        top: 126px;
+        left: 100px;
+        border: 1px solid #949494;
+        overflow: hidden;
+        border-right: 2px solid #A9A9A9;
+        border-left: 2px solid #A9A9A9;
+        border-top: 2px solid #A9A9A9;
+        border-bottom: 2px solid #A9A9A9;
+      }
+
+      #triangleUp {
+        width: 252px;
+        height: 253px;
+        transform: rotate(45deg);
+        position: absolute;
+        overflow: hidden;
+        left: 50px;
+        top: -129px;
+        z-index: 1;
+        background: #c8c8c8;
+        border-right: 4px solid #A9A9A9;
+        border-bottom: 4px solid #A9A9A9;
+      }
+
+      #traingleDown {
+        width: 254px;
+        height: 253px;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 50px;
+        top: 185px;
+        overflow: hidden;
+        border-left: 1px solid #A9A9A9;
+        border-top: 1px solid #A9A9A9;
+        background: #c8c8c8;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="envelope">
+      <div id="triangleUp"></div>
+      <div id="traingleDown"></div>
+    </div>
+  </body>
+</html>

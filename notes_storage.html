@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Notes</title>	
+		<style type="text/css">
+			label{
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span>Title:</span>
+			<input type="text" id="title"></br>
+			<span>Description:</span></br>
+			<textarea rows=6 cols=30 id="description"></textarea></br>
+			<p id="last_modified">Last Modified:</p>
+			<input type = "button" id="create" onclick="create()" value="Create Note"> </br> </br>
+		<input type="button" id="display" onclick="viewnote()" value="View Note"> <br> <br>
+		<input type="button" onblur="update()" value="Edit Note"> <br> <br>
+		<input type="button" onclick="deletee()" value="Remove Note">
+		<div id="list"></div>
+		<script>
+
+ 			if (typeof(localStorage) !== "undefined"){
+ 				
+ 		 		function create() {
+ 		 			localStorage.setItem(document.getElementById("title").value,document.getElementById("description").value);
+ 		 		}	
+                function viewnote(){
+                	//var lastModify = document.lastModified;
+                	for(var title  in localStorage) {
+				var list  = document.getElementById("list");
+				var lab = document.createElement("LABEL");
+				var labtitle = document.createTextNode(title);
+				lab.appendChild(labtitle);
+				list.appendChild(lab);
+			}
+                	var description = localStorage.getItem(document.getElementById("title").value);
+                    document.getElementById("description").value = description;
+ 		 			//localStorage.getItem(document.getElementById("last_modified").innerHTML=lastModify);
+                }  
+                function deletee() {
+                 	localStorage.removeItem("title");
+                 } 
+                function update(){
+                	console.log("hello");
+                	var title = document.getElementById("title").value;
+          			var description = document.getElementById("description").value;
+          			if(localStorage.getItem(title)==null)
+          				alert("Note is not here.");
+          			else 
+          				localStorage.setItem(title,description);
+
+ 		 			
+                }
+
+
+
+			}
+			else
+  				window.alert("Browser does not support Web Storage");
+		</script>
+	</body>
+</html>

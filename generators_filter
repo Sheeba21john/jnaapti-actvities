@@ -1,0 +1,9 @@
+function* lasyFilter(arr, filterFunc){
+  for (let item of arr){
+    yield filterFunc(item);
+  }
+}
+
+for (let item of lazyFilter([1, 2, 3, 4], x => x %2 == 0)) {
+  console.log(item);
+}

@@ -1,0 +1,37 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<span>Title:</span>
+		<input type="text" id="title"></br>
+		<span>Description:</span></br>
+		<textarea rows=6 cols=30></textarea>></br>
+		<p id="last_modified">Last Modified</p>
+		<button id="create" onclick="create()">Create Note </button> </br>
+		<button id="display" onclick="view()">View Note </button> </br>
+		<button id="update" onclick="update()">Edit Note</button> </br>
+		<button id="delete" onclick="deletee()">Remove Note</button>
+		<script>
+ 			if (typeof(localStorage) !== "undefined"){
+ 		 		function create(){
+ 		 			var time = document.lastModified;
+ 		 			localStorage.setItem("title",document.getElementById("title"));
+ 		 			localStorage.setItem("descripton",document.getElementById("descripton"));
+ 		 			localStorage.setItem("lastModify",document.getElementById("last_modified"))
+ 		 			localStorage.lastModify = document.lastModified;
+ 		 		}	
+                function view(){
+ 		 			localStorage.getItem("title");
+ 		 			localStorage.getItem("descripton");
+ 		 			localStorage.getItem("lastModify");
+                }  
+                function deletee() {
+                 	localStorage.removeItem("title");
+                 	localStorage.removeItem("description");
+                 } 
+			}
+			else
+  				window.alert("Browser does not support Web Storage");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Update Contacts</title>
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    </head>  	
+    <body>
+    		<fiieldset class="scheduler-border" >
+    			<center>
+    				<legend class="scheduler-border">Update Contacts</legend>
+					<form method = "POST" action = "/update_contact" enctype="multipart/form-data">
+   						<div> <label>Name:</label> <input type = "text" name = "name"> </div> <br>
+   						<div> <label>Number:</label> <input type = "text" name = "number"> </div> <br> 
+   						<div class="dropdown"> <label>Category:</label> 
+   						<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Please Select 
+  						<span class="caret"></span></button>
+  						<select>
+  						<ul class="dropdown-menu">
+    						<option name = "category" value ="friends" >Friends </option>
+    						<option name = "category" value = "family">Family </option>
+    						<option name = "category" value = "family">Acquaintance</option>
+  						 </ul>
+  			     		</select>
+						</div>			
+   						<br>
+        				<div>
+          					<label> Profile Picture: </label> <input type="file" name="file"> 
+		    			</div>
+		    			<br>
+		    			<div> <input type = "submit" value = "Update" class = "btn btn-primary"> </div>
+		            </form>
+		         </center>   
+   			 </fieldset>
+	</body>	
+</html>

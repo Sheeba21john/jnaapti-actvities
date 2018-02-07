@@ -1,0 +1,20 @@
+
+function random() {
+for(var i=0; i<10000; i++){
+    Math.floor(Math.random()*1000)+ 1;
+    if(i>500)
+    average(i);
+    i = i + 1;
+    postMessage(i);
+    setTimeout("random()",500);
+   } 
+}
+
+function average(num){
+	count=0;
+	sum=sum+num;
+	count++;
+	avg = sum/count;
+}
+
+average ();

@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Table of People</title>
+  </head>
+  <body>
+    <style>
+      table {
+        text-align: center;
+      }
+    </style>
+    <table id="ptable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Place</th>
+        </tr>
+      </thead>
+    </table>
+
+    Name: <input id="name" type="text"></br>
+    Place: <input id="place" type="text"></br>
+    <input id="addRow" type="button" value="Add" >
+    
+    <script>
+    	var Table = document.getElementById("ptable");
+      function createTable() {
+        var DataName = document.getElementById('name').value;
+        var DataPlace = document.getElementById('place').value;
+        var TableRow = document.createElement('tr') 
+        var TableName = document.createElement('td');
+        var TablePlace = document.createElement('td');
+         
+        var DeleteButton = document.createElement('button');
+        DeleteButton.addEventListener("click", function(){
+        	Table.removeChild(TableRow);
+        });
+
+        return [TableRow, TableName, TablePlace, DeleteButton, DataName, DataPlace];
+      }
+
+      document.getElementById("addRow").addEventListener("click", function () {
+        var TableArray = createTable();
+        var TableRow = TableArray[0];
+        var TableName = TableArray[1];
+        var TablePlace = TableArray[2];
+        var DeleteButton = TableArray[3];
+        var DataName = TableArray[4];
+        var DataPlace = TableArray[5];
+        NameNode = document.createTextNode(DataName);
+        PlaceNode = document.createTextNode(DataPlace);
+        DeleteNode = document.createTextNode("delete");
+        TableName.appendChild(NameNode);
+        TablePlace.appendChild(PlaceNode);
+        DeleteButton.appendChild(DeleteNode);
+        TableRow.appendChild(TableName);
+        TableRow.appendChild(TablePlace);
+        TableRow.appendChild(DeleteButton);
+        Table.prepend(TableRow);
+      });
+      
+    </script>
+  </body>
+</html>

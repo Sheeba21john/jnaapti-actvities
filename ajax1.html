@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <script>
+      var array = [1, 2, 3, 4, 5];
+
+      function filterMap(funcFilter, funcMap) {
+        var result = [];
+        for (var num in arr) {
+          if (funcFilter(arr[num])) //object created when function is invoked
+            result.push(funcMap(arr[num]));
+        }
+        return result;
+      }
+    </script>
+  </body>
+
+</html>

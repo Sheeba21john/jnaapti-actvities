@@ -1,0 +1,86 @@
+<html>
+
+  <head>
+  </head>
+
+  <body>
+
+    <div>
+      <center style="background-color: red; font-weight: bold">Inbox</center><br>
+      <div id="mails">
+        <center>
+          <div>
+            <a style="text-decoration:none; white-space: pre" id="mailOne"> Jnaapti           Review for History Api          Feb 7 9:00  </a>
+          </div> <br>
+          <div>
+            <a style="text-decoration: none; white-space: pre" id="mailTwo"> 2AdPro          Feedback                                 Jan 31 18:30 </a>
+          </div>
+        </center>
+      </div>
+
+      <div id="detailsOne">
+
+        <span style="font-weight: bold">	Mail Details: </span> <br>
+        <span style="font-weight: bold;">Subject: Review For history API </span>
+        <div>From: Jnaapti </div>
+        <div>To: Sheeba John </div><br><br>
+        <div>
+          Hello Sheeba,
+          <br> You have a reply from your coach Abraar for the activity: History API
+          <br> Your coach says: Can you explain your code?
+          <br> <br> Regards, <br> jnaapti
+        </div>
+      </div>
+
+      <div id="detailsTwo">
+
+        <span style="font-weight: bold">	Mail Details: </span> <br>
+        <span style="font-weight: bold;">Subject: Feedback </span>
+        <div>From: 2AdPro </div>
+        <div>To: Sheeba John </div> <br><br>
+        <div>
+          Hello Sheeba,
+          <br> You haven't sent the DC RC report for JDanalytics yesterday.
+          <br><br> Regards, <br> Dinesh
+        </div>
+      </div>
+
+
+      <script>
+        document.getElementById("detailsOne").style.display = "none";
+        document.getElementById("detailsTwo").style.display = "none";
+
+        document.getElementById('mailOne').addEventListener('click', () => {
+          var content = document.getElementById("mails");
+          content.style.display = "none";
+          document.getElementById("detailsOne").style.display = "block";
+          // history.pushState({
+          //   mailOne: "true"
+          // }, 'Mail1', '#/mail1/');
+          history.pushState(
+            null, null, '#/mail/1');
+
+          
+        });
+
+        document.getElementById('mailTwo').addEventListener('click', () => {
+          var content = document.getElementById("mails");
+          content.style.display = "none";
+          document.getElementById("detailsTwo").style.display = "block";
+          // history.pushState({
+          //   mailTwo: "true"
+          // }, 'Mail2', '#/mail2/');
+
+          history.pushState(
+            null, null, '#/mail/2');
+
+          
+        });
+
+        window.addEventListener('popstate', (event) => {
+          history.go();
+        });
+      </script>
+  </body>
+
+</html>

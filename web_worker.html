@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<p> Average of Random Numbers: </p>
+    	<button onclick = "startWorker()">Start Worker</button>
+    	<p><output id = "result">Result:</output></output></p>
+    	<script>
+    		var worker;
+    		function startWorker(){
+    			if(typeof(worker) == "undefined" ){
+    				worker = new Worker("random.js");
+    			}
+            	worker.onmessage = function (event){
+            		document.getElementById("result").innerHTML = event.data;
+            	};  
+        	}    	
+    	</script>
+	</body>
+</html>            	
+            	

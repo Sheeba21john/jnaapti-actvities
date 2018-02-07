@@ -1,0 +1,68 @@
+<html>
+   <head>
+      <title>Table of People</title>
+   </head>
+   <body>
+      <style>
+        table {
+          text-align: center;
+         }
+      </style>
+      <table id="ptable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Watchers</th>
+          </tr>
+        </thead>
+      </table>
+      <input id="fetch" type="button" value="Fetch">
+
+      <script>
+        function ajax (file, callback) {   
+          var getAjax = new XMLHttpRequest ();
+          getAjax.overrideMimeType("application/json");
+          getAjax.open('GET', 'http://localhost/watchers.json', true); 
+          getAjax.onreadystatechange = function () {
+            if (getAjax.readyState == 4 && getAjax.status == "200") {
+              callback(getAjax.responseText);
+            }
+          };
+          getAjax.send(null);  
+        }
+         
+        document.getElementById("fetch").addEventListener('click', function (){
+          ajax("http://localhost/watchers.json", function (response) {           
+            var ajaxJson = JSON.parse(response);
+
+            ajaxJson.sort(function (x,y){
+              return x.watchers<y.watchers;
+            });
+
+            for (var i = 0; i < ajaxJson.length; i++){
+
+              var table = document.getElementById("ptable");
+
+              var TableRow = document.createElement("tr");
+              
+              var TableDataName = document.createElement("td");
+              var TableDataWatcher = document.createElement("td");
+              
+              var name  = document.createTextNode(ajaxJson[i].id);
+              var watcher = document.createTextNode(ajaxJson[i].watchers);
+              
+              TableDataName.appendChild(name);
+              TableDataWatcher.appendChild(watcher);
+              TableRow.appendChild(TableDataName);
+              TableRow.appendChild(TableDataWatcher);
+              table.appendChild(TableRow);
+            }
+          });  
+        });
+      </script>
+      <script type="text/javascript" src="watchers.json"></script>
+   </body>
+</html>
+
+
+

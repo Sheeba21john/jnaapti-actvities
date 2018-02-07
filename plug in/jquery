@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  function ajax (file, callback) {   
+          var getAjax = new XMLHttpRequest ();
+          getAjax.overrideMimeType("application/json");
+          getAjax.open('GET', 'http://localhost/plug_in.json', true); 
+          getAjax.onreadystatechange = function () {
+            if (getAjax.readyState == 4 && getAjax.status == "200") {
+              callback(getAjax.responseText);
+            }
+          };
+          getAjax.send(null);  
+        }
+     
+        document.getElementById("fetch").addEventListener('click', function (){
+          ajax("http://localhost/plug_in.json", function (response) {           
+            var ajaxJson = JSON.parse(response);
+
+            ajaxJson.sort(function (x,y){
+              return x.plug_in<y.plug_in;
+            });
+
+            for (var i = 0; i < ajaxJson.length; i++){
+              var tableRow = document.getElementById("div");
+
+              var cellId= document.createElement("div");
+              cellId.setAttribudte('class', "Cell");
+              var cellName= document.createElement("div");
+              cellName.setAttribudte('class', "Cell");
+              var cellCategory= document.createElement("div");
+              cellCategory.setAttribudte('class', "Cell");
+              var cellPrice= document.createElement("div");
+              cellPrice.setAttribudte('class', "Cell");
+    
+              var tableDataId = document.createElement("p");  
+               var tableDataName = document.createElement("p");
+                var tableDataCategory = document.createElement("p");
+                var tableDataPrice = document.createElement("p");
+
+              var bookId = document.createTextNode(ajaxJson[i].Book_ID);
+              var bookName = document.createTextNode(ajaxJson[i].Book_Name);
+              var bookCategory = document.createTextNode(ajaxJson[i].Book_Category);
+              var bookPrice = document.createTextNode(ajaxJson[i].Book_Price);
+
+              tableDataId.appendChild(bookId);
+              tableDataName.appendChild(bookName);
+              tableDataCategory.appendChild(bookCategory);
+              tableDataPrice.appendChild(bookPrice);
+              cellId.appendChild(tableDataId);
+              cellName.appendChild(tableDataName);
+              cellCategory.appendChild(tableDataCategory);
+              cellPrice.appendChild(tableDataPrice);
+              tableRow.appendChild(cellId);
+              tableRow.appendChild(cellName);
+              tableRow.appendChild(cellCategory);
+              tableRow.appendChild(cellPrice);
+            }
+         
+</script>
+</head>
+<body>
+
+<button>Get JSON data</button>
+
+<div></div>
+
+</body>
+</html>

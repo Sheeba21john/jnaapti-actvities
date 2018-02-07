@@ -1,0 +1,87 @@
+<input type = "button" class = "btn btn-primary" value = "Update Contact" style = "width: 100px" >
+
+   var path = require('path'),
+   fs = require('fs');
+   app.post('/upload', function (req, res) {
+    v ar tempPath = req.files.file.path,
+        targetPath = path.resolve('./uploads/image.png');
+    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+        fs.rename(tempPath, targetPath, function(err) {
+            if (err) throw err;
+            console.log("Upload completed!");
+        });
+    } else {
+        fs.unlink(tempPath, function () {
+            if (err) throw err;
+            console.error("Only .png files are allowed!");
+        });
+    }
+    
+
+
+
+
+
+<i class = "fa fa-minus-circle" aria-hidden = "true"></i>
+
+
+
+
+
+    1.finish cateegory: front end 
+    backend display , update, add
+
+    2. profile image front end display and backend display update and adding done -update remains
+
+    3. sync update and delee buttons using jquery with each given contact name
+
+    4. make search bar to funton properly b entering the name to be searched
+
+    5. finish up front end for all pages
+
+    6. create placeholders and other required fields
+
+    7 hovering over the glyphicons
+
+    8.indentation and alignment in front end and code as well
+
+    9. update fix. 
+
+    10. final touch up.
+
+    <div class = "container">
+            <div class = "row">
+              <div class = "form-group col-lg-4">
+
+
+               </div>
+        <div class = "col-lg-4"></div>
+        <div class = "col-lg-4"></div>
+    </div>
+</div>
+
+<button style = "margin-left: 1240px;">  <i class = "fa fa-search" aria-hidden = "true" ></i> 
+                </button>
+
+
+    <div style="display: inline; position: absolute top: 160px">        line 23
+
+    <tr>   
+                           <% for(var i=0; i<result.length; i++ ){ %>
+                        <div class = "col-md-6" style = "text-align: center justify; display: inline;"> 
+                <td>   </td>  
+                          <td> 
+                     <span >Name: </span>
+                     <span> <%=result[i].name %> </span> 
+                </td>
+                </div>  
+                        <div class = "col-md-3" style = "text-align: justify; display: inline"> 
+                          <td>
+                  <span style="display: inline; padding-left: 300px">Number: </span>
+                          <span style="display: inline;"> <%= result[i].number %></span>
+                          <a href = "/update" data-toggle = "tooltip" title = "Edit"> <i class = "fa fa-pencil-square-o" aria-hidden = "true"></i> </a>
+                          <a href = "/delete" data-toggle = "tooltip" title = "Remove"> <i class = "fa fa-minus-circle" aria-hidden = "true"></i></a>
+                </div>
+                    <br><br>
+                    </div>  
+                        <div class = "col-md-3" style = "text-align: justify; display: inline"> 
